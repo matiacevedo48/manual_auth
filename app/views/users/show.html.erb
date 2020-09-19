@@ -1,0 +1,14 @@
+<div class="row">
+  <% current_user.stories.each do |user_story| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <%= link_to(image_tag(user_story.picture), user_story) if user_story.picture? %>
+        <div class="caption">
+          <h3><%= user_story.title %></h3>
+          <small><%= time_ago_in_words(user_story.created_at) %> ago</small>
+          <p><%= user_story.content.truncate(150)  %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
